@@ -1,13 +1,12 @@
-// eslint-disable-next-line react/prop-types
-function NavBar({ setPokemonindex, pokemonindex }) {
+/* eslint-disable react/prop-types */
+function NavBar({ pokemonList, handleClick }) {
   return (
     <>
-      {pokemonindex > 0 ? (
-        <button onClick={() => setPokemonindex(pokemonindex - 1)}>
-          Précendent
+      {pokemonList.map((pokemon, index) => (
+        <button key={pokemon.name} onClick={() => handleClick(index)}>
+          {pokemon.name}
         </button>
-      ) : null}
-      <button onClick={() => setPokemonindex(pokemonindex + 1)}>Suivant</button>
+      ))}
     </>
   );
 }

@@ -3,6 +3,21 @@ import "./App.css";
 import { useState } from "react";
 import NavBar from "./components/NavBar.jsx";
 
+function App() {
+  const [pokemonIndex, setPokemon] = useState(0);
+
+  const handleClick = (index) => {
+    setPokemon(index);
+  };
+
+  return (
+    <div>
+      <NavBar pokemonList={pokemonList} handleClick={handleClick} />
+      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+    </div>
+  );
+}
+export default App;
 const pokemonList = [
   {
     name: "bulbasaur",
@@ -28,18 +43,3 @@ const pokemonList = [
     name: "mew",
   },
 ];
-
-function App() {
-  const [pokemonindex, setPokemonindex] = useState(0);
-
-  return (
-    <>
-      <PokemonCard pokemon={pokemonList[pokemonindex]} />
-      <NavBar      setPokemonindex={setPokemonindex} pokemonindex={pokemonindex} />
-      
-    
-    </>
-  );
-}
-
-export default App;
